@@ -4,31 +4,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BookConsoleApp
+namespace BookConsoleApp;
+
+class BookApp
 {
-    class BookApp
+    List<Book> Books { get; set; } = new List<Book>();
+
+    public void Test()
     {
-        List<Book> Books { get; set; } = new List<Book>();
+        Books.Add(new Book());
+        Books.Add(new Book("Happy Rotter"));
+        PrintBooks();
 
-        public void Test()
+        Thread.Sleep(1000);
+
+        Books[0].Title = "Some Title";
+        PrintBooks();
+    }
+
+    public void PrintBooks()
+    {
+        foreach (var book in Books)
         {
-            Books.Add(new Book());
-            Books.Add(new Book("Happy Rotter"));
-            PrintBooks();
-
-            Thread.Sleep(1000);
-
-            Books[0].Title = "Some Title";
-            PrintBooks();
+            Console.WriteLine(book);
         }
-
-        public void PrintBooks()
-        {
-            foreach (var book in Books)
-            {
-                Console.WriteLine(book);
-            }
-            Console.WriteLine();
-        }
+        Console.WriteLine();
     }
 }
