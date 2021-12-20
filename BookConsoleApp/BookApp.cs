@@ -14,11 +14,21 @@ namespace BookConsoleApp
         {
             Books.Add(new Book());
             Books.Add(new Book("Happy Rotter"));
+            PrintBooks();
 
+            Thread.Sleep(1000);
+
+            Books[0].Title = "Some Title";
+            PrintBooks();
+        }
+
+        public void PrintBooks()
+        {
             foreach (var book in Books)
             {
                 Console.WriteLine(book);
             }
+            Console.WriteLine();
         }
     }
 }

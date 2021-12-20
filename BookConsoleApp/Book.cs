@@ -36,17 +36,14 @@ namespace BookConsoleApp
             StringBuilder sb = new();
             sb.Append("Book { Title: ");
             sb.Append(Title);
-            sb.Append(", ");
+            sb.Append(", Created At: ");
+            sb.Append(CreatedAt.ToString());
 
             if (IsEdited())
             {
+                sb.Append(", ");
                 sb.Append("Edited At: ");
                 sb.Append(EditedAt.ToString());
-            }
-            else
-            {
-                sb.Append("Created At: ");
-                sb.Append(CreatedAt.ToString());
             }
 
             sb.Append(" }");
